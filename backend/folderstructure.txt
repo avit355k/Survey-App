@@ -1,0 +1,26 @@
+backend
+│
+├── config
+│   └── supabase.js
+│
+├── controllers
+│   ├── authController.js
+│   ├── candidateController.js
+│   ├── categoryController.js
+│   ├── surveyController.js
+│   └── resultController.js
+│
+├── middleware
+│   ├── authMiddleware.js
+│   └── roleMiddleware.js
+│
+├── routes
+│   ├── authRoutes.js
+│   ├── candidateRoutes.js
+│   ├── categoryRoutes.js
+│   ├── surveyRoutes.js
+│   └── resultRoutes.js
+│
+├── sql.sql
+├── server.js
+└── .env
