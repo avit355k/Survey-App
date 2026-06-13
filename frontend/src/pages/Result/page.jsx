@@ -12,13 +12,12 @@ const Result = () => {
   const [maxScore, setMaxScore] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // ==========================
+
   // Fetch Overall Ranking
-  // ==========================
   const fetchOverallRanking = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/results/overall`
+        `${API}/api/results/overall`
       );
 
       if (data.success) {
@@ -34,7 +33,7 @@ const Result = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/categories`
+        `${API}/api/categories`
       );
 
       setCategories(data || []);
@@ -46,13 +45,11 @@ const Result = () => {
     }
   };
 
-  // ==========================
   // Fetch Dashboard Stats
-  // ==========================
   const fetchDashboard = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/results/dashboard`
+        `${API}/api/results/dashboard`
       );
 
       if (data.success) {
@@ -63,9 +60,7 @@ const Result = () => {
     }
   };
 
-  // ==========================
   // Fetch Category Rankings
-  // ==========================
   const fetchCategoryRankings = async (
     categoriesData
   ) => {
@@ -75,7 +70,7 @@ const Result = () => {
       await Promise.all(
         categoriesData.map(async (category) => {
           const { data } = await axios.get(
-            `${API}/results/category/${category.id}`
+            `${API}/api/results/category/${category.id}`
           );
 
           if (data.success) {
@@ -90,9 +85,7 @@ const Result = () => {
     }
   };
 
-  // ==========================
   // Initial Load
-  // ==========================
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -166,10 +159,10 @@ const Result = () => {
                         {index === 0
                           ? "🥇"
                           : index === 1
-                          ? "🥈"
-                          : index === 2
-                          ? "🥉"
-                          : "🏅"}
+                            ? "🥈"
+                            : index === 2
+                              ? "🥉"
+                              : "🏅"}
                       </span>
 
                       <div>
@@ -255,10 +248,10 @@ const Result = () => {
                               {index === 0
                                 ? "🥇"
                                 : index === 1
-                                ? "🥈"
-                                : index === 2
-                                ? "🥉"
-                                : "🏅"}
+                                  ? "🥈"
+                                  : index === 2
+                                    ? "🥉"
+                                    : "🏅"}
                             </span>
 
                             <span className="truncate text-sm md:text-lg">

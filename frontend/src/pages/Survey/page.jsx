@@ -26,7 +26,7 @@ const Survey = () => {
   const fetchCandidates = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/candidates`
+        `${API}/api/candidates`
       );
 
       setCandidates(data);
@@ -39,7 +39,7 @@ const Survey = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/categories`
+        `${API}/api/categories`
       );
 
       setCategories(data);
@@ -51,7 +51,7 @@ const Survey = () => {
   const checkSurveyStatus = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/survey/status`,
+        `${API}/api/survey/status`,
         axiosConfig
       );
 
@@ -68,7 +68,7 @@ const Survey = () => {
   const fetchMySurvey = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/survey/my-survey`,
+        `${API}/api/survey/my-survey`,
         axiosConfig
       );
 
@@ -141,7 +141,7 @@ const Survey = () => {
       });
 
       const { data } = await axios.post(
-        `${API}/survey/submit`,
+        `${API}/api/survey/submit`,
         {
           ratings: payload,
         },

@@ -33,7 +33,7 @@ const SignIn = () => {
       setLoading(true);
 
       const response = await axios.post(
-        `${API}/auth/login`,
+        `${API}/api/auth/login`,
         {
           email: formData.email,
           password: formData.password,

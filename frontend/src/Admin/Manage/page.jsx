@@ -25,7 +25,7 @@ const Manage = () => {
   const fetchCandidates = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/candidates`
+        `${API}/api/candidates`
       );
 
       setCandidates(data || []);
@@ -38,7 +38,7 @@ const Manage = () => {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(
-        `${API}/categories`
+        `${API}/api/categories`
       );
 
       setCategories(data || []);
@@ -60,7 +60,7 @@ const Manage = () => {
 
     try {
       await axios.post(
-        `${API}/candidates`,
+        `${API}/api/candidates`,
         {
           name: candidate,
           image_url: null,
@@ -90,7 +90,7 @@ const Manage = () => {
 
     try {
       await axios.post(
-        `${API}/categories`,
+        `${API}/api/categories`,
         {
           name: category,
           max_marks: 10,
@@ -117,7 +117,7 @@ const Manage = () => {
 
     try {
       await axios.delete(
-        `${API}/candidates/${id}`,
+        `${API}/api/candidates/${id}`,
         axiosConfig
       );
 
@@ -138,7 +138,7 @@ const Manage = () => {
 
     try {
       await axios.delete(
-        `${API}/categories/${id}`,
+        `${API}/api/categories/${id}`,
         axiosConfig
       );
 
@@ -164,7 +164,7 @@ const Manage = () => {
 
     try {
       await axios.put(
-        `${API}/candidates/${item.id}`,
+        `${API}/api/candidates/${item.id}`,
         {
           name: newName,
         },
@@ -193,7 +193,7 @@ const Manage = () => {
 
     try {
       await axios.put(
-        `${API}/categories/${item.id}`,
+        `${API}/api/categories/${item.id}`,
         {
           name: newName,
           max_marks: 10,
