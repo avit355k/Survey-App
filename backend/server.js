@@ -6,12 +6,30 @@ dotenv.config();
 
 const app = express();
 
+// CORS CONFIG
+const allowedOrigins = [
+  "http://localhost:5173", // local frontend
+  "https://chodnewalaaashik.vercel.app"   // live frontend
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://chodnewalaaashik.vercel.app"
-    ],
+    origin: function (origin, callback) {
+
+      // Allow mobile apps, Postman, curl (no origin)
+      if (!origin) return callback(null, true);
+
+      // Check allowed origins
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      // If not allowed
+      console.log(" CORS BLOCKED:", origin);
+      return callback(new Error("Not allowed by CORS"));
+    },
+
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true
   })
 );
