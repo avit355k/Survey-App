@@ -43,6 +43,12 @@ const members = [
         image:
             "https://res.cloudinary.com/dw2gks8uv/image/upload/v1781377452/ami_ejusu8.webp",
     },
+    {
+        id: 8,
+        name: "Papai",
+        image:
+            "https://res.cloudinary.com/dw2gks8uv/image/upload/v1781377452/rahul_iewbel.webp",
+    }
 ];
 
 const Member = () => {
